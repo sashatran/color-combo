@@ -202,7 +202,8 @@ svg path {
   #about p {
     font-size: 0.5em; }
   .modal {
-    text-align: center; }
+    text-align: center;
+    height: auto; }
   .box {
     width: 100px;
     height: 100px; }

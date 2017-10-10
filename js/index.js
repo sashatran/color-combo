@@ -71,7 +71,6 @@ function copy(e){
 }
 
 function handleClick(box){
-  $("body").addClass("modal-open");
   let bgColor = box.style.backgroundColor;
   let textColor = box.style.color;
 
@@ -107,8 +106,7 @@ $(document).ready(function(){
   });
 
   $(".close").click(function(){
-    $("body").removeClass("modal-open");
-   closeModal(this);
+    closeModal(this);
  });
 
   $("#tweet").click(function(){
@@ -121,7 +119,6 @@ $(document).ready(function(){
   });
 
   $(".about").click(function(){
-    $("body").addClass("modal-open");
     $("#about").css("transform", "translateY(0%)");
   });
 
