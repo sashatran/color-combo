@@ -95,7 +95,7 @@ function closeModal(modal){
 }
 
 function tweetMe(tweet){
-  let tweetContent = "Check out this color collection by @sa_sha26";
+  let tweetContent = "Check out this color collection by @sa_sha26! http://bit.ly/2yf5BuQ 💜";
   $(tweet).attr("href", "https://twitter.com/intent/tweet?text="+ tweetContent);
 }
 
