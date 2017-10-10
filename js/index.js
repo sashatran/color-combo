@@ -71,7 +71,6 @@ function copy(e){
 }
 
 function handleClick(box){
-  console.log(box);
   $("body").addClass("modal-open");
   let bgColor = box.style.backgroundColor;
   let textColor = box.style.color;
