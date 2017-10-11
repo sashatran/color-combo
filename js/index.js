@@ -71,7 +71,6 @@ function copy(e){
 }
 
 function handleClick(box){
-  alert("cliked");
   let scrollTop = $(document).scrollTop();
 
   let bgColor = box.style.backgroundColor;
