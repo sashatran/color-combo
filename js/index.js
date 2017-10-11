@@ -106,10 +106,6 @@ $(document).ready(function(){
 
   getData();
 
-  $(document).on("click", ".box", function(){
-    handleClick(this);
-  });
-
   $(".close").click(function(){
     closeModal(this);
  });
@@ -128,3 +124,7 @@ $(document).ready(function(){
   });
 
 });
+
+$(document).on("click", ".box", function(){
+    handleClick(this);
+  });
