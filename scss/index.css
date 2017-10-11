@@ -144,6 +144,7 @@ nav {
   opacity: 1; }
 
 .show {
+  -webkit-transform: translateX(0%);
   transform: translateX(0%); }
 
 .close {

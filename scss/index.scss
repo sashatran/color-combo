@@ -176,6 +176,7 @@ nav {
 }
 
 .show {
+	-webkit-transform: translateX(0%);
 	transform: translateX(0%);
 }
 
