@@ -52,14 +52,14 @@ function getData(){
 }
 
 // Animate in the boxes
-function animate(box, index){
+const animate = (box, index) => {
   let delay = index * 200;
   setTimeout(function(){
     $(box).addClass("enter")
   }, delay)
 }
 
-function copy(e){
+const copy = (e) => {
   let bgColor = rgbToHex(document.documentElement.style.getPropertyValue("--bgColor"));
   let textColor = rgbToHex(document.documentElement.style.getPropertyValue("--textColor"));
   let copyStr = "background-color: " + bgColor + ";" + "\n color: " + textColor + ";";
@@ -71,19 +71,17 @@ function copy(e){
   $temp.remove();
 }
 
-function handleClick(box){
+const handleClick = (box) => {
   let scrollTop = $(document).scrollTop();
-
   let bgColor = box.style.backgroundColor;
   let textColor = box.style.color;
-
   document.documentElement.style.setProperty("--bgColor", bgColor);
   document.documentElement.style.setProperty("--textColor", textColor);
   $(".modal").addClass("show");
   $(".modal").css("top", scrollTop);
 }
 
-function closeModal(modal){
+const closeModal = (modal) => {
   let parent =  $(modal).parent().parent()[0].id;
   let about;
   if(parent === "about") {
@@ -97,13 +95,12 @@ function closeModal(modal){
   }
 }
 
-function tweetMe(tweet){
+const tweetMe = (tweet) => {
   let tweetContent = "Check out this color collection by @sa_sha26! http://bit.ly/2yf5BuQ 💜";
   $(tweet).attr("href", "https://twitter.com/intent/tweet?text="+ tweetContent);
 }
 
 $(document).ready(function(){
-
   getData();
 
   $(".close").click(function(){
@@ -122,5 +119,4 @@ $(document).ready(function(){
   $(".about").click(function(){
     $("#about").css("transform", "translateY(0%)");
   });
-
 });
