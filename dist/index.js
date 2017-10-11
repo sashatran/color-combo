@@ -1,11 +1,10 @@
 // convert rgb to hex
-function componentFromStr(numStr, percent) {
+const componentFromStr = (numStr, percent) => {
   var num = Math.max(0, parseInt(numStr, 10));
-  return percent ?
-  Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+  return percent ? Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
 }
 
-function rgbToHex(rgb) {
+const rgbToHex = (rgb) => {
   var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
   var result, r, g, b, hex = "";
   if ( (result = rgbRegex.exec(rgb)) ) {
@@ -18,7 +17,7 @@ function rgbToHex(rgb) {
   return hex;
 }
 
-function colorData(favorites){
+const colorData = (favorites) => {
   let set = favorites.map(function(item,index){
     let bgColor = "rgb(" + item.colors[0].toString() + ")";
     let textColor = "rgb(" + item.colors[1].toString() + ")";
@@ -30,7 +29,7 @@ function colorData(favorites){
     return box;
   });
 
-  set.forEach(function(box, index){
+  set.forEach((box, index) => {
     $(".container").append(box);
     animate(box,index);
   });
@@ -38,7 +37,7 @@ function colorData(favorites){
 
 
 // retrieve data from JSON
-function getData(){
+const getData = () => {
   $.ajax({
     method: "GET",
     url: "./data.json",
