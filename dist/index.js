@@ -71,6 +71,7 @@ function copy(e){
 }
 
 function handleClick(box){
+  alert("cliked");
   let scrollTop = $(document).scrollTop();
 
   let bgColor = box.style.backgroundColor;
@@ -86,7 +87,8 @@ function handleClick(box){
 function closeModal(modal){
   let parent =  $(modal).parent().parent()[0].id;
   if(parent === "about") {
-    $("#"+parent).css("transform", "translateY(-200%)");
+    let about = "#" + parent;
+    $(about).css("transform", "translateY(-200%)");
   }
 
   if(parent === "box") {
