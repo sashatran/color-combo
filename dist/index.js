@@ -26,7 +26,7 @@ function colorData(favorites){
     box.style.backgroundColor = bgColor;
     box.style.color = textColor;
     box.className = "box";
-    box.addEventListener("click", handleClick);
+    box.addEventListener("click", function(){handleClick(this)});
     return box;
   });
 
