@@ -57,8 +57,7 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
-  z-index: 999; }
+  flex-wrap: wrap; }
 
 .box {
   font-family: 'Lato', sans-serif;
