@@ -1,12 +1,12 @@
 // convert rgb to hex
 const componentFromStr = (numStr, percent) => {
-  var num = Math.max(0, parseInt(numStr, 10));
+  let num = Math.max(0, parseInt(numStr, 10));
   return percent ? Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
 }
 
 const rgbToHex = (rgb) => {
-  var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
-  var result, r, g, b, hex = "";
+  let rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+  let result, r, g, b, hex = "";
   if ( (result = rgbRegex.exec(rgb)) ) {
     r = componentFromStr(result[1], result[2]);
     g = componentFromStr(result[3], result[4]);
