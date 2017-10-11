@@ -26,6 +26,7 @@ function colorData(favorites){
     box.style.backgroundColor = bgColor;
     box.style.color = textColor;
     box.className = "box";
+    box.addEventListener("click", function(){alert("test")});
     return box;
   });
 
@@ -85,8 +86,9 @@ function handleClick(box){
 
 function closeModal(modal){
   let parent =  $(modal).parent().parent()[0].id;
+  let about;
   if(parent === "about") {
-    let about = "#" + parent;
+    about = "#" + parent;
     $(about).css("transform", "translateY(-200%)");
   }
 
@@ -126,5 +128,5 @@ $(document).ready(function(){
 });
 
 $(document).on("click", ".box", function(){
-    handleClick(this);
-  });
+    // handleClick(this);
+});
