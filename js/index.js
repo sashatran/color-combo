@@ -26,7 +26,7 @@ function colorData(favorites){
     box.style.backgroundColor = bgColor;
     box.style.color = textColor;
     box.className = "box";
-    box.addEventListener("click", function(){alert("test")});
+    box.addEventListener("click", handleClick);
     return box;
   });
 
@@ -80,7 +80,6 @@ function handleClick(box){
   document.documentElement.style.setProperty("--bgColor", bgColor);
   document.documentElement.style.setProperty("--textColor", textColor);
   $(".modal").addClass("show");
-  // $(".modal").css("transform", "translateX(0%)");
   $(".modal").css("top", scrollTop);
 }
 
@@ -94,7 +93,6 @@ function closeModal(modal){
 
   if(parent === "box") {
     $(".modal").removeClass("show")
-    // $(".modal").css("transform", "translateX(-100%)");
     $(".copy").removeClass("copied");
   }
 }
