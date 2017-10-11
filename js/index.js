@@ -124,7 +124,3 @@ $(document).ready(function(){
   });
 
 });
-
-$(document).on("click", ".box", function(){
-    // handleClick(this);
-});
