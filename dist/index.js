@@ -71,13 +71,16 @@ function copy(e){
 }
 
 function handleClick(box){
+  let scrollTop = $(document).scrollTop();
+
   let bgColor = box.style.backgroundColor;
   let textColor = box.style.color;
 
   document.documentElement.style.setProperty("--bgColor", bgColor);
   document.documentElement.style.setProperty("--textColor", textColor);
-
-  $(".modal").css("transform", "translateX(0%)");
+  $(".modal").addClass("show");
+  // $(".modal").css("transform", "translateX(0%)");
+  $(".modal").css("top", scrollTop);
 }
 
 function closeModal(modal){
