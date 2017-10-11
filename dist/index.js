@@ -91,7 +91,7 @@ function closeModal(modal){
 
   if(parent === "box") {
     $(".modal").removeClass("show")
-    $(".modal").css("transform", "translateX(-100%)");
+    // $(".modal").css("transform", "translateX(-100%)");
     $(".copy").removeClass("copied");
   }
 }
