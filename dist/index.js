@@ -18,7 +18,7 @@ const rgbToHex = (rgb) => {
 }
 
 const colorData = (favorites) => {
-  let set = favorites.map(function(item,index){
+  let set = favorites.map((item,index) => {
     let bgColor = "rgb(" + item.colors[0].toString() + ")";
     let textColor = "rgb(" + item.colors[1].toString() + ")";
     let box = document.createElement("div");
@@ -41,12 +41,8 @@ const getData = () => {
   $.ajax({
     method: "GET",
     url: "./data.json",
-    success: function(data){
-      colorData(data.favorites);
-    },
-    error: function(err){
-      console.log(err);
-    }
+    success: data => colorData(data.favorites),
+    error: err => console.log("error " + err.status)
   });
 }
 
