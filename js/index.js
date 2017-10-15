@@ -111,7 +111,5 @@ $(document).ready(function(){
     $(this).addClass("copied");
   });
 
-  $(".about").click(function(){
-    $("#about").css("transform", "translateY(0%)");
-  });
+  $(".about").click(() => $("#about").css("transform", "translateY(0%)"));
 });
