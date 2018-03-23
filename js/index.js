@@ -54,11 +54,24 @@ const animate = (box, index) => {
   }, delay)
 }
 
+// copy css
 const copy = (e) => {
-  let bgColor = rgbToHex(document.documentElement.style.getPropertyValue("--bgColor"));
-  let textColor = rgbToHex(document.documentElement.style.getPropertyValue("--textColor"));
-  let copyStr = "background-color: " + bgColor + ";" + "\n color: " + textColor + ";";
+  
+  let id = parseInt(e.target.getAttribute("data-copy"));
+  let copyStr; 
 
+  if(id === 1) {
+    let bgColor = rgbToHex(document.documentElement.style.getPropertyValue("--bgColor"));
+    let textColor = rgbToHex(document.documentElement.style.getPropertyValue("--textColor"));
+    copyStr = "background-color: " + bgColor + ";" + "\n color: " + textColor + ";";
+  }
+
+  if(id === 2) {
+    let textColor = rgbToHex(document.documentElement.style.getPropertyValue("--bgColor"));
+    let bgColor = rgbToHex(document.documentElement.style.getPropertyValue("--textColor"));
+    copyStr = "background-color: " + bgColor + ";" + "\n color: " + textColor + ";";
+  }
+  console.log(copyStr);
   var $temp = $("<input>");
   $("body").append($temp);
   $temp.val(copyStr).select();
@@ -74,11 +87,31 @@ const handleClick = (box) => {
   document.documentElement.style.setProperty("--textColor", textColor);
   $(".modal").addClass("show");
   $(".modal").css("top", scrollTop);
+
+  code(box);
+  
 }
 
+const code = (box) => {
+  let style = box.style;
+  let background = rgbToHex(style.backgroundColor);
+  let text = rgbToHex(style.color);
+  $("#code-1 p:first-child").text(generateCode("background-color", background));
+  $("#code-1 p:nth-child(2)").text(generateCode("color", text));
+  $("#code-2 p:first-child").text(generateCode("background-color", text));
+  $("#code-2 p:nth-child(2)").text(generateCode("color", background));
+}
+
+function generateCode(attr, color) {
+  return attr + ": " + color + ";";
+}
+
+// close modal
 const closeModal = (modal) => {
-  let parent =  $(modal).parent().parent()[0].id;
+  // let parent =  $(modal).parent().parent()[0].id;
+  let parent = $(modal).parent()[0].id;
   let about;
+  console.log("closed", $(modal).parent()[0]);
   if(parent === "about") {
     about = "#" + parent;
     $(about).css("transform", "translateY(-200%)");
@@ -95,6 +128,21 @@ const tweetMe = (tweet) => {
   $(tweet).attr("href", "https://twitter.com/intent/tweet?text="+ tweetContent);
 }
 
+// toggle background
+let current = 0;
+let reverse;
+const toggleBg = () => {
+  let background = ["#FFFFFF", "#F5F5F5", "#666666", "#333333", "#000000"];
+  reverse = ["#FFFFFF", "#F5F5F5", "#F6F6F6", "#444444", "#444444"].reverse();
+  current++;
+  document.documentElement.style.setProperty("--toggleBg", background[current]);
+  document.documentElement.style.setProperty("--toggleBtn", reverse[current]);
+  if(current >= background.length) {
+    current = 0;
+  }
+  console.log(current, background[current]);
+};
+
 $(document).ready(function(){
   getData();
 
@@ -109,6 +157,15 @@ $(document).ready(function(){
   $(".copy").click(function(e){
     copy(e);
     $(this).addClass("copied");
+
+    setTimeout(() => {
+      $(this).removeClass("copied");
+    }, 300);
+  });
+
+  $("#toggle").click(() => {
+    console.log("hello");
+    toggleBg();
   });
 
   $(".about").click(() => $("#about").css("transform", "translateY(0%)"));

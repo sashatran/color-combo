@@ -2,9 +2,12 @@
 @import url("https://fonts.googleapis.com/css?family=Cutive+Mono|Lato|Roboto");
 @import url("https://fonts.googleapis.com/css?family=Mukta:300,400,500");
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 :root {
   --bgColor: #e36396;
-  --textColor: #39305e; }
+  --textColor: #39305e;
+  --toggleBg: #FFFFFF;
+  --toggleBtn: #444444; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -43,7 +46,8 @@ nav {
   display: flex;
   height: calc(100vh - 120px);
   justify-content: center;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center; }
 
 .header {
   padding: 10px 30px;
@@ -56,13 +60,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 85%;
   flex-wrap: wrap; }
 
 .box {
   font-family: 'Lato', sans-serif;
-  width: 20px;
-  height: 20px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +74,8 @@ nav {
   font-size: 16px;
   transition: 0.5s all ease;
   transform: translateY(30px);
-  opacity: 0; }
+  opacity: 0;
+  margin: 5px; }
   .box:hover {
     transform: scale(0.9);
     transition: 0.5s all ease; }
@@ -109,32 +114,6 @@ nav {
   height: 100vh;
   padding: 10px; }
 
-.modal {
-  position: absolute;
-  top: 0%;
-  left: 0;
-  background: var(--bgColor);
-  color: var(--textColor);
-  width: 100%;
-  height: 100vh;
-  transition: 0.5s all ease;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  text-transform: uppercase;
-  font-size: 100px;
-  font-family: 'Oswald', sans-serif;
-  overflow: hidden; }
-  .modal p {
-    margin: 0;
-    padding: 10px; }
-
-.modal-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 40px; }
-
 .content {
   padding: 5px;
   opacity: 1;
@@ -145,15 +124,13 @@ nav {
   transform: translateY(0);
   opacity: 1; }
 
-.show {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%); }
-
 .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  position: relative;
   margin: 15px; }
   .close:before, .close:after {
     position: absolute;
@@ -176,28 +153,79 @@ svg path {
   stroke: var(--textColor);
   fill: none; }
 
-.copy {
-  position: relative;
-  overflow: hidden;
-  margin: 0 30px;
-  font-size: 20px; }
-  .copy:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateX(-120%);
-    background: var(--textColor);
-    transition: 0.8s all ease; }
+.copied {
+  opacity: 1; }
+  .copied svg path {
+    stroke: var(--textColor);
+    fill: var(--textColor); }
 
-.copied svg path {
-  stroke: var(--textColor);
-  fill: var(--textColor); }
-.copied:before {
-  transition: 0.8s all ease;
-  transform: translateX(120%); }
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bgColor);
+  background-color: var(--toggleBg);
+  transition: 0.5s all ease;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  font-family: 'Poppins', sans-serif; }
+
+#toggle {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: var(--toggleBtn);
+  font-size: 20px; }
+
+.modal-nav {
+  width: 30%;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px 0 rgba(51, 51, 51, 0.2);
+  margin: 20px; }
+  .modal-nav button {
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 2.5px;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px 0;
+    margin-top: 0; }
+    .modal-nav button:active {
+      opacity: 0.6; }
+  .modal-nav #upper {
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif; }
+  .modal-nav-1 {
+    background-color: var(--bgColor); }
+    .modal-nav-1 p, .modal-nav-1 h2 {
+      color: var(--textColor); }
+    .modal-nav-1 button {
+      background-color: var(--textColor);
+      color: var(--bgColor); }
+  .modal-nav-2 {
+    background-color: var(--textColor); }
+    .modal-nav-2 p, .modal-nav-2 h2 {
+      color: var(--bgColor); }
+    .modal-nav-2 button {
+      background-color: var(--bgColor);
+      color: var(--textColor); }
+
+code {
+  padding: 40px; }
+  code p {
+    margin: 3px; }
+
+.show {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%); }
 
 @media (max-width: 800px) {
   nav {

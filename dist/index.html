@@ -9,6 +9,7 @@
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous"></script>
 	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<nav>
@@ -37,18 +38,29 @@
 	</div>
 
 	<div id="box" class="modal">
-		<div class="modal-nav">
-			<div class="copy">
-				<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-					<path  stroke-width="2" d="M8.5,2.23606798 L15.381966,16 L1.61803399,16 L8.5,2.23606798 Z"/>
-				</svg>
-				Copy CSS</div>
-				<div class="close"></div>
-			</div>
-			<p>Cheesecake chocolate bar Candy canes donut lollipop jelly beans lemon drops gingerbread bonbon tiramisu. </p>
-			<p>Sugar plum biscuit bonbon tiramisu apple pie jelly beans fruitcake carrot cake. Toffee wafer apple pie </p>
-			<p>Toffee jelly-o topping. Jelly-o cotton candy bear claw cotton candy tootsie roll chupa chups halvah baklava</p>
+		<div class="close"></div>
+		<div class="modal-nav modal-nav-1">
+			<h2>This is how heading would look like.</h2>
+			<p>This is how text would look like.</p>
+			<p id="upper">This is how uppercase would look like.</p>
+			<button id="copy-1" data-copy="1" class="copy">Copy CSS</button>
+			<code id="code-1">
+				<p></p>
+				<p></p>
+			</code>
 		</div>
+		<div class="modal-nav modal-nav-2">
+			<h2>This is how heading would look like.</h2>
+			<p>This is how text would look like.</p>
+			<p id="upper">This is how uppercase would look like.</p>
+			<button id="copy-2" data-copy="2" class="copy">Copy CSS</button>
+			<code id="code-2">
+				<p></p>
+				<p></p>
+			</code>
+		</div>
+		<div id="toggle"><i class="fa fa-adjust"></i></div>
+	</div>
 		<script src="index.js"></script>
 	</body>
 
