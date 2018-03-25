@@ -140,7 +140,7 @@ const toggleBg = () => {
   if(current >= background.length) {
     current = 0;
   }
-  console.log(current, background[current]);
+  // console.log(current, background[current]);
 };
 
 $(document).ready(function(){
