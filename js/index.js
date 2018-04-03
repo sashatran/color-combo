@@ -56,7 +56,6 @@ const animate = (box, index) => {
 
 // copy css
 const copy = (e) => {
-  
   let id = parseInt(e.target.getAttribute("data-copy"));
   let copyStr; 
 
@@ -85,18 +84,16 @@ const handleClick = (box) => {
   let textColor = box.style.color;
   document.documentElement.style.setProperty("--bgColor", bgColor);
   document.documentElement.style.setProperty("--textColor", textColor);
-  $(".modal").addClass("show");
-  $(".modal").css("top", scrollTop);
+  $(".modal-parent").addClass("show");
+  $(".modal-parent").css("top", scrollTop);
 
-  code(box);
-  
+  code(box); 
 }
 
 const code = (box) => {
   let style = box.style;
   let background = rgbToHex(style.backgroundColor);
   let text = rgbToHex(style.color);
-  console.log("style",style.color);
   $("#code-1 p:first-child").text(generateCode("background-color", background));
   $("#code-1 p:nth-child(2)").text(generateCode("color", text));
   $("#code-2 p:first-child").text(generateCode("background-color", text));
@@ -109,7 +106,7 @@ function generateCode(attr, color) {
 
 // close modal
 const closeModal = (modal) => {
-    $(".modal").removeClass("show");
+    $(".modal-parent").removeClass("show");
 }
 
 const tweetMe = (tweet) => {
