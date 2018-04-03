@@ -104,41 +104,6 @@ nav {
 	transition: 0.5s all ease;
 }
 
-
-.about-modal {
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	background: var(--bgColor);
-	color: var(--textColor);
-	width: 100%;
-	height: 100vh;
-	transform: translateY(-200%);
-	transition: 0.7s all ease;
-	font-size: 120px;
-	font-family: 'Oswald', sans-serif;
-	text-transform: uppercase;
-
-	p {
-		margin: 0;
-	}
-
-	a {
-		color: var(--textColor);
-	}
-}
-
-.about-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100vh;
-	padding: 10px;
-}
-
-
 .content {
 	padding: 5px;
 	opacity: 1;
@@ -151,24 +116,61 @@ nav {
 	opacity: 1;
 }
 
+.modal {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: var(--bgColor);
+	background-color: var(--toggleBg);
+	transition: 0.5s all ease;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	font-family: 'Poppins', sans-serif;
+}
+
+.modal-parent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	// border: 1px solid red;
+}
+
+#toggle {
+	left: 20px;
+	top: 20px;
+	color: var(--toggleBtn);
+	font-size: 20px;
+	margin: 13px;
+}
 
 .close {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	width: 30px;
-	height: 30px;
+	width: 27px;
+	height: 27px;
 	border-radius: 50%;
-	margin: 15px;
+	margin: 13px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	&:before, &:after{
+	&:before, &:after {
 		position: absolute;
 		content: '';
 		width: 2px;
-		height: 20px;
+		height: 15px;
 		background: var(--textColor);
-		 top: 5px;
-    	left: 14px;
 	}
 
 	&:before {
@@ -188,43 +190,6 @@ nav {
 	}
 }
 
-svg path {
-	stroke: var(--textColor);
-	fill: none;
-}
-
-.copied {
-	opacity: 1;
-	svg path {
-		stroke: var(--textColor);
-		fill: var(--textColor);
-	}
-}
-
-.modal {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: var(--bgColor);
-	background-color: var(--toggleBg);
-	transition: 0.5s all ease;
-	-webkit-transform: translateX(-100%);
-	transform: translateX(-100%);
-	font-family: 'Poppins', sans-serif;
-}
-
-#toggle {
-	position: absolute;
-	left: 20px;
-	top: 20px;
-	color: var(--toggleBtn);
-	font-size: 20px;
-}
 
 .modal-nav {
 	width: 30%;
@@ -303,13 +268,6 @@ code {
 		justify-content: center;
 	}
 	
-	.about-text {
-		text-align: center;
-	}
-
-	#about p {
-		font-size: 0.5em;
-	}
 
 	.modal {
 		text-align: center;

@@ -108,19 +108,7 @@ function generateCode(attr, color) {
 
 // close modal
 const closeModal = (modal) => {
-  // let parent =  $(modal).parent().parent()[0].id;
-  let parent = $(modal).parent()[0].id;
-  let about;
-  console.log("closed", $(modal).parent()[0]);
-  if(parent === "about") {
-    about = "#" + parent;
-    $(about).css("transform", "translateY(-200%)");
-  }
-
-  if(parent === "box") {
-    $(".modal").removeClass("show")
-    $(".copy").removeClass("copied");
-  }
+    $(".modal").removeClass("show");
 }
 
 const tweetMe = (tweet) => {
@@ -140,7 +128,6 @@ const toggleBg = () => {
   if(current >= background.length) {
     current = 0;
   }
-  // console.log(current, background[current]);
 };
 
 $(document).ready(function(){
