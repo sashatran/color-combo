@@ -7,6 +7,7 @@
   --bgColor: #e36396;
   --textColor: #39305e;
   --toggleBg: #FFFFFF;
+  --toggleBgBorder: #232323;
   --toggleBtn: #444444; }
 
 body {
@@ -199,6 +200,27 @@ code {
 .show {
   -webkit-transform: translateX(0%);
   transform: translateX(0%); }
+
+.toggleBg {
+  display: flex; }
+  .toggleBg li {
+    width: 20px;
+    height: 20px;
+    list-style-type: none;
+    margin: 5px;
+    box-sizing: border-box; }
+  .toggleBg .bg-1 {
+    background-color: #FFFFFF; }
+  .toggleBg .bg-2 {
+    background-color: #F5F5F5; }
+  .toggleBg .bg-3 {
+    background-color: #666666; }
+  .toggleBg .bg-4 {
+    background-color: #333333; }
+  .toggleBg .bg-5 {
+    background-color: #000000; }
+  .toggleBg .bg-1 {
+    border: 3px solid var(--toggleBgBorder); }
 
 @media (max-width: 800px) {
   nav {

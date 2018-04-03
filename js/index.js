@@ -96,6 +96,7 @@ const code = (box) => {
   let style = box.style;
   let background = rgbToHex(style.backgroundColor);
   let text = rgbToHex(style.color);
+  console.log("style",style.color);
   $("#code-1 p:first-child").text(generateCode("background-color", background));
   $("#code-1 p:nth-child(2)").text(generateCode("color", text));
   $("#code-2 p:first-child").text(generateCode("background-color", text));
@@ -116,19 +117,29 @@ const tweetMe = (tweet) => {
   $(tweet).attr("href", "https://twitter.com/intent/tweet?text="+ tweetContent);
 }
 
-// toggle background
-let current = 0;
-let reverse;
-const toggleBg = () => {
-  let background = ["#FFFFFF", "#F5F5F5", "#666666", "#333333", "#000000"];
-  reverse = ["#FFFFFF", "#F5F5F5", "#F6F6F6", "#444444", "#444444"].reverse();
-  current++;
-  document.documentElement.style.setProperty("--toggleBg", background[current]);
-  document.documentElement.style.setProperty("--toggleBtn", reverse[current]);
-  if(current >= background.length) {
-    current = 0;
-  }
+const toggleBg = (e) => {
+  let current = e.target;
+  let bgColor = $(current).attr("data-color");
+  document.documentElement.style.setProperty("--toggleBg", bgColor);
+  let rgb = hexToRgb(bgColor);
+  let grey = greyscale(rgb);
+  let greyHex = rgbToHex("rgb(" + grey[0] + "," + grey[1] + "," + grey[2] + ")");
+  let border = "3px solid " + greyHex;
+  console.log($(".bgColor").children().not(current));
+  $(".toggleBg").children().css("border", "0");
+  $(current).css("border", border);
 };
+
+function greyscale(arr) {
+    const grey = Math.floor(0.21 * arr[0] + 0.72 * arr[1] + 0.07 * arr[2]);
+    return grey < 150 ? [235, 235, 235] : [35, 35, 35];
+}
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
+
+}
 
 $(document).ready(function(){
   getData();
@@ -150,10 +161,7 @@ $(document).ready(function(){
     }, 300);
   });
 
-  $("#toggle").click(() => {
-    console.log("hello");
-    toggleBg();
+  $(".toggleBg").children().click((e) => {
+    toggleBg(e);
   });
-
-  $(".about").click(() => $("#about").css("transform", "translateY(0%)"));
 });

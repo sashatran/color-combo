@@ -8,6 +8,7 @@
 	--bgColor: #e36396;
 	--textColor: #39305e;
 	--toggleBg: #FFFFFF;
+	--toggleBgBorder: #232323;
 	--toggleBtn: #444444;
 }
 
@@ -259,6 +260,29 @@ code {
 	transform: translateX(0%);
 }
 
+$colors: #FFFFFF, #F5F5F5, #666666, #333333, #000000;
+
+.toggleBg {
+	display: flex;
+
+	li {
+		width: 20px;
+		height: 20px;
+		list-style-type: none;
+		margin: 5px;
+		box-sizing: border-box;
+	}
+
+	@for $i from 1 through 5 {
+		.bg-#{$i} {
+			background-color: nth($colors, $i);
+		}
+	}
+
+	.bg-1 {
+		border: 3px solid var(--toggleBgBorder);
+	}
+}
 
 
 
