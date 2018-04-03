@@ -51,7 +51,7 @@ const animate = (box, index) => {
   let delay = index * 200;
   setTimeout(function(){
     $(box).addClass("enter")
-  }, delay)
+  }, delay);
 }
 
 // copy css
@@ -118,15 +118,15 @@ const tweetMe = (tweet) => {
 }
 
 const toggleBg = (e) => {
+  $(".toggleBg").children().css("border", "0");
   let current = e.target;
   let bgColor = $(current).attr("data-color");
-  document.documentElement.style.setProperty("--toggleBg", bgColor);
   let rgb = hexToRgb(bgColor);
   let grey = greyscale(rgb);
   let greyHex = rgbToHex("rgb(" + grey[0] + "," + grey[1] + "," + grey[2] + ")");
   let border = "3px solid " + greyHex;
-  console.log($(".bgColor").children().not(current));
-  $(".toggleBg").children().css("border", "0");
+
+  document.documentElement.style.setProperty("--toggleBg", bgColor);
   $(current).css("border", border);
 };
 
@@ -138,7 +138,6 @@ function greyscale(arr) {
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
-
 }
 
 $(document).ready(function(){
