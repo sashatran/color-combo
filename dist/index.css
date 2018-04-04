@@ -101,7 +101,7 @@ nav {
 .modal-parent {
   height: 100vh;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: var(--bgColor);
@@ -129,8 +129,7 @@ nav {
   left: 20px;
   top: 20px;
   color: var(--toggleBtn);
-  font-size: 20px;
-  margin: 13px; }
+  font-size: 20px; }
 
 .close {
   width: 27px;

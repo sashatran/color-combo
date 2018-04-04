@@ -120,7 +120,7 @@ nav {
 .modal-parent {
 	height: 100vh;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background: var(--bgColor);
@@ -145,7 +145,6 @@ nav {
 	align-items: center;
 	width: 100%;
 	height: 50px;
-	// border: 1px solid red;
 }
 
 #toggle {
@@ -153,7 +152,7 @@ nav {
 	top: 20px;
 	color: var(--toggleBtn);
 	font-size: 20px;
-	margin: 13px;
+	// margin: 13px;
 }
 
 .close {

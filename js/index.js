@@ -70,7 +70,6 @@ const copy = (e) => {
     let bgColor = rgbToHex(document.documentElement.style.getPropertyValue("--textColor"));
     copyStr = "background-color: " + bgColor + ";" + "\n color: " + textColor + ";";
   }
-  console.log(copyStr);
   var $temp = $("<input>");
   $("body").append($temp);
   $temp.val(copyStr).select();
@@ -85,7 +84,7 @@ const handleClick = (box) => {
   document.documentElement.style.setProperty("--bgColor", bgColor);
   document.documentElement.style.setProperty("--textColor", textColor);
   $(".modal-parent").addClass("show");
-  $(".modal-parent").css("top", scrollTop);
+  $(".modal-parent").css("top", 0);
 
   code(box); 
 }
