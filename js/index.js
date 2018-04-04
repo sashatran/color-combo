@@ -4,6 +4,7 @@ const componentFromStr = (numStr, percent) => {
   return percent ? Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
 }
 
+// convert rgb to hex
 const rgbToHex = (rgb) => {
   let rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
   let result, r, g, b, hex = "";
@@ -17,6 +18,19 @@ const rgbToHex = (rgb) => {
   return hex;
 }
 
+// computer greyscale
+function greyscale(arr) {
+    const grey = Math.floor(0.21 * arr[0] + 0.72 * arr[1] + 0.07 * arr[2]);
+    return grey < 150 ? [235, 235, 235] : [35, 35, 35];
+}
+
+// convert hex to rgb
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
+}
+
+// get colors from json
 const colorData = (favorites) => {
   let set = favorites.map((item,index) => {
     let bgColor = "rgb(" + item.colors[0].toString() + ")";
@@ -113,6 +127,7 @@ const tweetMe = (tweet) => {
   $(tweet).attr("href", "https://twitter.com/intent/tweet?text="+ tweetContent);
 }
 
+// toggle background color for modal
 const toggleBg = (e) => {
   $(".toggleBg").children().css("border", "0");
   let current = e.target;
@@ -125,16 +140,6 @@ const toggleBg = (e) => {
   document.documentElement.style.setProperty("--toggleBg", bgColor);
   $(current).css("border", border);
 };
-
-function greyscale(arr) {
-    const grey = Math.floor(0.21 * arr[0] + 0.72 * arr[1] + 0.07 * arr[2]);
-    return grey < 150 ? [235, 235, 235] : [35, 35, 35];
-}
-
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
-}
 
 $(document).ready(function(){
   getData();
